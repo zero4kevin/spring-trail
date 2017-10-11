@@ -11,7 +11,9 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 public class App {
     public static void main(String[] args) throws PerformanceException{
         ApplicationContext ctx=new FileSystemXmlApplicationContext("src/main/java/com/zero4kevin/spring/spring-trial.xml");
-        Performer performer=(Performer)ctx.getBean("poeticDuke");
+        Performer performer=(Performer)ctx.getBean("kenny");
+        performer.perform();
+        performer=(Performer)ctx.getBean("oneManBand");
         performer.perform();
     }
 }

@@ -16,4 +16,22 @@
     </bean>
     <bean id="theStage" class="com.zero4kevin.spring.performance.Stage" factory-method="getInstance"/>
 
+    <bean id="kenny" class="com.zero4kevin.spring.performance.Instrumentalist">
+        <property name="song" value="Jingle Bell"/>
+        <property name="age" value="37"/>
+        <property name="instrument" ref="piano"/>
+    </bean>
+
+    <bean id="saxophone" class="com.zero4kevin.spring.performance.Saxophone"/>
+    <bean id="piano" class="com.zero4kevin.spring.performance.Piano"/>
+
+    <bean id="oneManBand" class="com.zero4kevin.spring.performance.OneManBand">
+        <property name="instrumentMap">
+            <map>
+                <entry key="piano" value-ref="piano"/>
+                <entry key="saxophone" value-ref="saxophone"/>
+            </map>
+        </property>
+    </bean>
+
 </beans>

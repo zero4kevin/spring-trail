@@ -11,14 +11,19 @@ import com.zero4kevin.spring.performance.interfaces.Performer;
 public class Instrumentalist implements Performer {
     private String song;
     private Instrument instrument;
+    private int age;
 
     public Instrumentalist(String song, Instrument instrument) {
         this.song = song;
         this.instrument = instrument;
     }
 
+    public Instrumentalist() {
+    }
+
     public void perform() throws PerformanceException {
         System.out.print("Playing "+ song + " : ");
+        instrument.play();
     }
 
     public void setSong(String song){
@@ -35,6 +40,14 @@ public class Instrumentalist implements Performer {
 
     public Instrument getInstrument(){
         return instrument;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void tuneInstrument(){instrument.tune();}
