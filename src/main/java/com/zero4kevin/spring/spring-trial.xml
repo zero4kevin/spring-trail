@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="duke" class="com.zero4kevin.spring.performance.Juggler" scope="prototype">
+        <constructor-arg name="beanBags" value="9527"/>
+    </bean>
+
+    <bean id="sonnect29" class="com.zero4kevin.spring.performance.Sonnet29"/>
+
+    <bean id="poeticDuke" class="com.zero4kevin.spring.performance.PoeticJuggler">
+        <constructor-arg value="888"/>
+        <constructor-arg ref="sonnect29"/>
+    </bean>
+    <bean id="theStage" class="com.zero4kevin.spring.performance.Stage" factory-method="getInstance"/>
+
+</beans>
