@@ -12,7 +12,7 @@
     <bean id="instrument" class="com.zero4kevin.spring.performance.Piano"/>
 
     <bean id="kenny" class="com.zero4kevin.spring.performance.InstrumentalistAutoWiring" autowire="byName">
-        <property name="song" value="Jingle Bell"/>
+<!--        <property name="song" value="Jingle Bell"/> -->
         <property name="age" value="37"/>
     </bean>
 

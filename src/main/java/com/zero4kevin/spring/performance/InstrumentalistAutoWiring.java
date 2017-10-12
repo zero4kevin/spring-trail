@@ -4,17 +4,20 @@ import com.zero4kevin.spring.performance.exceptions.PerformanceException;
 import com.zero4kevin.spring.performance.interfaces.Instrument;
 import com.zero4kevin.spring.performance.interfaces.Performer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 
 /**
  * Created by xi1zhang on 2017/10/11.
  */
 public class InstrumentalistAutoWiring implements Performer {
+    @Value("Jing Bell")
     private String song;
+
     @Autowired
     private Instrument instrument;
 
-    @Autowired
+    @Autowired(required=false)
     private int age;
 
     public InstrumentalistAutoWiring(String song, Instrument instrument) {
