@@ -3,6 +3,7 @@ package com.zero4kevin.spring.performance;
 import com.zero4kevin.spring.performance.exceptions.PerformanceException;
 import com.zero4kevin.spring.performance.interfaces.Instrument;
 import com.zero4kevin.spring.performance.interfaces.Performer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -13,11 +14,13 @@ public class Instrumentalist implements Performer {
     private Instrument instrument;
     private int age;
 
+    @Autowired(required = false)
     public Instrumentalist(String song, Instrument instrument) {
         this.song = song;
         this.instrument = instrument;
     }
 
+    @Autowired(required = false)
     public Instrumentalist() {
     }
 

@@ -7,6 +7,7 @@ import com.zero4kevin.spring.performance.exceptions.PerformanceException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,16 +20,17 @@ import static org.junit.Assert.*;
 //@ContextConfiguration({"classpath:spring-annotationwiring.xml"})
 @ContextConfiguration(locations={"file:src/main/java/com/zero4kevin/spring/spring-annotationwiring.xml"})
 public class PerformanceTest {
-    @Autowired
-    Guitar guitar;
+//    @Autowired
+//    Guitar guitar;
 
     @Autowired
+    @Qualifier("guitar")
     InstrumentalistAutoWiring instrumentalist;
 
-    @Test
-    public void GuitarNotNull(){
-        assertNotNull(guitar);
-    }
+//    @Test
+//    public void GuitarNotNull(){
+//        assertNotNull(guitar);
+//    }
 
     @Test
     public  void InstrumentIsPiano() throws PerformanceException {

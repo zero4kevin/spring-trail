@@ -57,12 +57,13 @@ public class InstrumentalistAutoWiring implements Performer {
 
     public void cleanInstrument(){instrument.clean();}
 
-    @Autowired
-    @Qualifier("piano")
+
     public Instrument getInstrument() {
         return instrument;
     }
 
+    @Autowired
+    @Qualifier("piano")
     public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
     }
