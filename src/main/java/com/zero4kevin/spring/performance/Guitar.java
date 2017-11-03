@@ -4,12 +4,12 @@ import com.zero4kevin.spring.performance.interfaces.Instrument;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by kevin on 10/11/17.
+ * Created by kevin on 10/15/17.
  */
-@Component("piano")
-public class Piano implements Instrument {
+@Component("guitar")
+public class Guitar implements Instrument {
     public void play() {
-        System.out.println("PLINK PLINK PLINK");
+        System.out.println("Strum strum strum");
     }
 
     public void tune() {

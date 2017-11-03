@@ -4,26 +4,28 @@ import com.zero4kevin.spring.performance.exceptions.PerformanceException;
 import com.zero4kevin.spring.performance.interfaces.Instrument;
 import com.zero4kevin.spring.performance.interfaces.Performer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 
 /**
  * Created by xi1zhang on 2017/10/11.
  */
+@Component("eddie")
 public class InstrumentalistAutoWiring implements Performer {
-    @Value("Jing Bell")
     private String song;
 
-    @Autowired
     private Instrument instrument;
 
-    @Autowired(required=false)
     private int age;
 
     public InstrumentalistAutoWiring(String song, Instrument instrument) {
         this.song = song;
         this.instrument = instrument;
+        this.age=18;
     }
+
 
     public InstrumentalistAutoWiring() {
     }
@@ -33,6 +35,7 @@ public class InstrumentalistAutoWiring implements Performer {
         instrument.play();
     }
 
+    @Value("little stars")
     public void setSong(String song){
         this.song=song;
     }
@@ -53,4 +56,15 @@ public class InstrumentalistAutoWiring implements Performer {
     public void tuneInstrument(){instrument.tune();}
 
     public void cleanInstrument(){instrument.clean();}
+
+
+    public Instrument getInstrument() {
+        return instrument;
+    }
+
+    @Autowired
+    @Qualifier("piano")
+    public void setInstrument(Instrument instrument) {
+        this.instrument = instrument;
+    }
 }

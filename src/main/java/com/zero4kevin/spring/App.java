@@ -11,11 +11,11 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 public class App {
     public static void main(String[] args) throws PerformanceException{
         ApplicationContext ctx=new FileSystemXmlApplicationContext("src/main/java/com/zero4kevin/spring/spring-annotationwiring.xml");
-        Performer performer=(Performer)ctx.getBean("kenny");
+        Performer performer=(Performer)ctx.getBean("eddie");
         performer.perform();
 
-        ctx=new FileSystemXmlApplicationContext("src/main/java/com/zero4kevin/spring/spring-trial.xml");
-        performer=(Performer)ctx.getBean("poeticDuke");
-        performer.perform();
+//        ctx=new FileSystemXmlApplicationContext("src/main/java/com/zero4kevin/spring/spring-trial.xml");
+//        performer=(Performer)ctx.getBean("poeticDuke");
+//        performer.perform();
     }
 }
