@@ -2,19 +2,44 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-          http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop
+          http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <bean id="audience" class="com.zero4kevin.spring.aopdemo.Audience" />
-    
+    <bean id="magician" class="com.zero4kevin.spring.performance.Magician"/>
+
+    <bean id="saxophone" class="com.zero4kevin.spring.performance.Saxophone"/>
+    <bean id="kenny" class="com.zero4kevin.spring.performance.Instrumentalist" autowire="byName">
+        <property name="song" value="Jingle Bell"/>
+        <property name="age" value="37"/>
+        <property name="instrument" ref="saxophone"/>
+    </bean>
+
     <aop:config>
        <aop:aspect ref="audience">
            <aop:pointcut id="performance" expression="execution(* com.zero4kevin.spring.performance.interfaces.Performer.perform(..))"/>
-           <aop:before pointcut-ref="performance" method="takeSeats"/>
+       <!--    <aop:before pointcut-ref="performance" method="takeSeats"/>
            <aop:before pointcut-ref="performance" method="turnOffCellPhones()"/>
            <aop:after-returning method="applaud" pointcut-ref="performance"/>
            <aop:after-throwing method="demandRefund" pointcut-ref="performance"/>
+           -->
+           <aop:around method="watchPerformance" pointcut-ref="performance"/>
+       </aop:aspect>
+       <aop:aspect>
+           <aop:declare-parents types-matching="com.zero4kevin.spring.performance.interfaces.Performer+"
+                                implement-interface="com.zero4kevin.spring.aopdemo.Contestant"
+                                default-impl="com.zero4kevin.spring.aopdemo.GraciousContestant"/>
+       </aop:aspect>
+       <aop:aspect ref="magician">
+           <aop:pointcut id="thinking"
+                         expression="
+                         execution(* com.zero4kevin.spring.performance.interfaces.Thinker.thinkOfSomething(String))
+                         and args(thoughts)"/>
+
+           <aop:before method="interceptThoughts" pointcut-ref="thinking" arg-names="thoughts"/>
        </aop:aspect>
     </aop:config>
-
 </beans>
