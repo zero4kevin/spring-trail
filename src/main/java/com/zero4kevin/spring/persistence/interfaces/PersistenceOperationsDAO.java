@@ -8,9 +8,9 @@ import java.util.List;
  * Created by xi1zhang on 2017/11/24.
  */
 public interface PersistenceOperationsDAO {
-    public void setDataSource(DataSource dataSource);
+    public Object query(int id);
 
-    public List<Object> query();
+    public List queryAll();
 
     public void insert(Object object);
 
