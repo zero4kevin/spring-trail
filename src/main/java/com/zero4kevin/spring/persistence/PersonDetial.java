@@ -40,5 +40,9 @@ public class PersonDetial {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String toString(){
+        return "id="+id +", fname="+fname+", gname=" + gname + ", address="+ address;
+    }
     
 }
