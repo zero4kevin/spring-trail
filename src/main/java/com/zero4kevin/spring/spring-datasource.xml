@@ -20,9 +20,8 @@
         <property name="maxActive" value="10"/>
     </bean>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
-        <constructor-arg ref="dataSource"/>
-    </bean>
 
-    <bean id="testJdbcTemplateDAO" class="com.habuma.s"
+    <bean id="testJdbcTemplateDAO" class="com.zero4kevin.spring.persistence.JdbcPersistenceOperationsDAO">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 </beans>
