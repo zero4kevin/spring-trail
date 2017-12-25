@@ -2,6 +2,7 @@ package com.zero4kevin.spring.persistence;
 
 import com.zero4kevin.spring.persistence.interfaces.PersistenceOperationsDAO;
 import org.hibernate.SessionFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
@@ -20,6 +21,14 @@ public class HibernatePersistenceOperationsDAO implements PersistenceOperationsD
     public List queryAll() {
         String sql="from "+table;
         return session.openSession().createQuery(sql).getResultList();
+    }
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        
+    }
+
+    public List query() {
+        return null;
     }
 
     public void insert(Object object) {

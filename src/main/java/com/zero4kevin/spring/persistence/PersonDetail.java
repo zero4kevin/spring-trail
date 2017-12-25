@@ -3,7 +3,7 @@ package com.zero4kevin.spring.persistence;
 /**
  * Created by xi1zhang on 2017/11/23.
  */
-public class PersonDetial {
+public class PersonDetail {
     private String fname;
     private String gname;
     private int id;
