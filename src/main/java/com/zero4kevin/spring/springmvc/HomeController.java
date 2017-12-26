@@ -16,7 +16,7 @@ import java.util.HashMap;
  * Created by kevin on 12/24/17.
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping(value="/")
 public class HomeController {
     public static final int DEFAULT_SPITTLES_PER_PAGE=25;
 
@@ -27,7 +27,7 @@ public class HomeController {
         this.spitterService=spitterService;
     }
 
-    @RequestMapping({"/","/home"})
+    @RequestMapping(value={"/","/home"})
     public String showHomePage(HashMap<String, Object> model){
         model.put("spittles", spitterService.getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE));
         return "home";
