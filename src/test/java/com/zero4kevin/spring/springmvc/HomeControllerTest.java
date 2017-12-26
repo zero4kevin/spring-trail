@@ -4,9 +4,11 @@ import com.zero4kevin.spring.springmvc.domain.Spittle;
 import com.zero4kevin.spring.springmvc.service.SpitterService;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static junit.framework.TestCase.assertSame;
 import static org.mockito.Mockito.*;
 /**
  * Created by kevin on 12/24/17.
@@ -18,9 +20,15 @@ public class HomeControllerTest {
 
         List<Spittle> expectedSpittles=asList(new Spittle(), new Spittle(), new Spittle());
 
-        SpitterService spitterService =mock(SpitterService);
+        SpitterService spitterService =mock(SpitterService.class);
 
-        when(spitterService.getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE));
+        when(spitterService.getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE)).thenReturn(expectedSpittles);
+
+        HomeController homeController=new HomeController(spitterService);
+        HashMap<String, Object> model=new HashMap<String, Object>();
+        homeController.showHomePage(model);
+        assertSame(expectedSpittles,model.get("spittles"));
+        verify(spitterService).getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE);
 
     }
 }

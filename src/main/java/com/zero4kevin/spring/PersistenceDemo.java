@@ -15,10 +15,10 @@ public class PersistenceDemo {
     public static void main(String[] args){
         ApplicationContext ctx=new FileSystemXmlApplicationContext("src/main/java/com/zero4kevin/spring/spring.xml");
         PersistenceOperationsDAO dao=(PersistenceOperationsDAO)ctx.getBean("testJdbcTemplateDAO");
-        List<Object> list=dao.query();
-        Iterator iterator=list.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
+//        List<Object> list=dao.query();
+//        Iterator iterator=list.iterator();
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+//        }
     }
 }

@@ -8,9 +8,8 @@ import java.util.Map;
  * Created by xi1zhang on 2017/11/24.
  */
 public interface PersistenceOperationsDAO {
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate);
 
-    public List query();
+    public List query(int id);
 
     public void insert(Object object);
 

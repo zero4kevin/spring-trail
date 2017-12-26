@@ -2,7 +2,7 @@ package com.zero4kevin.spring;
 
 import com.zero4kevin.spring.performance.exceptions.PerformanceException;
 import com.zero4kevin.spring.performance.interfaces.Performer;
-import com.zero4kevin.spring.persistence.PersonDetial;
+import com.zero4kevin.spring.persistence.PersonDetail;
 import com.zero4kevin.spring.persistence.interfaces.PersistenceOperationsDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;

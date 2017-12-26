@@ -14,8 +14,8 @@ public class PersistenceDaoDemo {
         ApplicationContext context=new FileSystemXmlApplicationContext("src/main/java/com/zero4kevin/spring/spring.xml");
         PersistenceOperationsDAO operationsDAO=(PersistenceOperationsDAO) context.getBean("testJdbcTemplateDAO");
 //        System.out.println(operationsDAO.query(123));
-        Iterator iterator=operationsDAO.queryAll().iterator();
-        while(iterator.hasNext())
-            System.out.println(iterator.next());
+//        Iterator iterator=operationsDAO.queryAll().iterator();
+//        while(iterator.hasNext())
+//            System.out.println(iterator.next());
     }
 }

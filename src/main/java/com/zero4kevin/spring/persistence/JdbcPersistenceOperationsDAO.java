@@ -20,12 +20,19 @@ public class JdbcPersistenceOperationsDAO extends JdbcDaoSupport implements Pers
 
     public List queryAll() {
         final String sql="select * from "+ table;
-        return getJdbcTemplate().queryForList(sql);
+//        return getJdbcTemplate().queryForList(sql);
+        return null;
     }
 
     public List query() {
         String queryAll="select * from "+ table;
-        return getJdbcTemplate().queryForList(queryAll);
+//        return getJdbcTemplate().queryForList(queryAll);
+        return null;
+    }
+
+
+    public List query(int id) {
+        return null;
     }
 
     public void insert(Object object) {
@@ -39,4 +46,5 @@ public class JdbcPersistenceOperationsDAO extends JdbcDaoSupport implements Pers
 
     public void update(Object object) {
     }
+
 }
