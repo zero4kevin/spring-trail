@@ -1,8 +1,10 @@
 package com.zero4kevin.spring.persistence;
 
 import com.zero4kevin.spring.persistence.interfaces.PersistenceOperationsDAO;
-//import org.hibernate.SessionFactory;
-//import org.springframework.jdbc.core.JdbcTemplate;
+
+import org.hibernate.SessionFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  * Created by xi1zhang on 2017/11/27.
  */
 public class HibernatePersistenceOperationsDAO implements PersistenceOperationsDAO {
-//    private SessionFactory session;
+    private SessionFactory session;
     private final String table="personal_information";
 
     public List query(int id){
@@ -27,6 +29,14 @@ public class HibernatePersistenceOperationsDAO implements PersistenceOperationsD
         return null;
     }
 
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        
+    }
+
+    public List query() {
+        return null;
+    }
+
     public void insert(Object object) {
 
     }
@@ -39,11 +49,11 @@ public class HibernatePersistenceOperationsDAO implements PersistenceOperationsD
 
     }
 
-//    public SessionFactory getSession() {
-//        return session;
-//    }
+    public SessionFactory getSession() {
+        return session;
+    }
 
-//    public void setSession(SessionFactory session) {
-//        this.session = session;
-//    }
+    public void setSession(SessionFactory session) {
+        this.session = session;
+    }
 }

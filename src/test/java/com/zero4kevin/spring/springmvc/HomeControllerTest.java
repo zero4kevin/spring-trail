@@ -3,7 +3,6 @@ package com.zero4kevin.spring.springmvc;
 import com.zero4kevin.spring.springmvc.domain.Spittle;
 import com.zero4kevin.spring.springmvc.service.SpitterService;
 import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,9 +23,11 @@ public class HomeControllerTest {
 
         when(spitterService.getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE)).thenReturn(expectedSpittles);
 
-        HomeController homeController=new HomeController(spitterService);
+
         HashMap<String, Object> model=new HashMap<String, Object>();
+        HomeController homeController=new HomeController(spitterService);
         homeController.showHomePage(model);
+
         assertSame(expectedSpittles,model.get("spittles"));
         verify(spitterService).getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE);
 
