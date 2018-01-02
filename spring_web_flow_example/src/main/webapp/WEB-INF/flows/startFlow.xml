@@ -4,5 +4,10 @@
       xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance
           http://www.springframework.org/schema/webflow
           http://www.springframework.org/schema/webflow/spring-webflow.2.3.xsd ">
-    
+
+
+    <view-state id="home">
+        <transition on="" to="addUser"/>
+        <transition on="" to="showUser"/>
+    </view-state>
 </flow>
