@@ -1,5 +1,7 @@
 package com.zero4kevin.spring.springmvc.domain;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -7,10 +9,18 @@ import java.util.List;
  */
 public class Spitter {
     private Long id;
+
+    @Size(min=3, max=20, message="Username must be between 3 and 30 characters long.")
+    @Pattern(regexp="^[a-zA-Z0-9]+$", message="xxxxxx")
     private String username;
+
+    @Size(min=6, max=20, message="xxxx")
     private String password;
     private String fullName;
     private List<Spittle> spittles;
+
+    @Size(min=3,max=50,message="xxxxxx")
+    @Pattern(regexp="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", message="xxx")
     private String email;
     private boolean updateByEmail;
 

@@ -17,6 +17,7 @@
                     <td>
                         <sf:input path="username" size="15" maxlength="15" />
                         <small id="username_msg">No spaces, please.</small>
+                        <sf:errors path="username" cssClass="error"/>
                     </td>
                 </tr>
 
@@ -26,6 +27,7 @@
                     <td>
                         <sf:password path="password" size="30" showPassword="true"/>
                         <small>6 characters or more (be tricky!)</small>
+                        <sf:error path="password" cssClass="error"/>
                     </td>
                 </tr>
 
@@ -35,6 +37,7 @@
                     <td>
                         <sf:input path="email" size="30"/>
                         <small>In case you forget something</small>
+                        <sf:error path="email" cssClass="error" />
                     </td>
                 </tr>
 
