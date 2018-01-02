@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by kevin on 12/24/17.
  */
+
 public interface SpitterService {
     List<Spittle> getRecentSpittles(int count);
     void saveSpittle(Spittle spittle);

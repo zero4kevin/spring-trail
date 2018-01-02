@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<webapp>
+  <servlet>
+    <servlet-name>example</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>example</servlet-name>
+      <pattern>/webflow</pattern>
+  </servlet-mapping>
+
+</webapp>
