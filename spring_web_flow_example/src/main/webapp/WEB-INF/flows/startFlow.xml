@@ -1,13 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <flow xmlns="http://www.springframework.org/schema/webflow"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance
-          http://www.springframework.org/schema/webflow
-          http://www.springframework.org/schema/webflow/spring-webflow.2.3.xsd ">
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
 
     <view-state id="home">
-        <transition on="" to="addUser"/>
-        <transition on="" to="showUser"/>
+        <transition on="addUser" to="newUser"/>
+        <transition on="showUsers" to="showUsers"/>
     </view-state>
+
+    <view-state id="newUser" >
+        <transition on="completed" to="saveUser"/>
+    </view-state>
+
+    <action-state id="saveUser">
+        <transition to="showUsers"/>
+    </action-state>
+
+    <view-state id="showUsers" >
+            <transition to="endState"/>
+    </view-state>
+
+    <global-transitions>
+        <transition on="cancel"/>
+    </global-transitions>
+
 </flow>
